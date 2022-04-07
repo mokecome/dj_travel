@@ -8,10 +8,17 @@ from .travel.travel import main
 from .travel.Mail import sendmail
 from .travel.schedule import Schedule
 
+flag=0
 # Create your views here.
 def index(request):
+    global flag
     if request.session.has_key('user'):
         user = request.session['user']
+        if flag == 0:
+            # 排程
+            work = Schedule()
+            work.run()
+            flag = 1
         return render(request, "index.html", {"role": user})
     else:
         return render(request, "index.html", {"role": "0"})
@@ -23,7 +30,7 @@ def login(request):
 
 
 def processLogin(request):
-
+    global flag
     account = request.POST.get("account")
     passwd = request.POST.get("passwd")
     if User.objects.filter(account=account).exists():
@@ -33,9 +40,11 @@ def processLogin(request):
             return HttpResponseRedirect(reverse_lazy(login))
         else:
             request.session['user'] = u.name
-            # 排程
-            work = Schedule()
-            work.run()
+            if flag==0:
+                # 排程
+                work = Schedule()
+                work.run()
+                flag=1
             return redirect('index')
     else:
         messages.error(request, '查無該帳號請註冊')
@@ -72,7 +81,9 @@ def logout(request):
     return redirect('index')
 
 def viewcharts(request):        #管理者
-    # travel_spider()
+    #寄送email
+    #u = User.objects.get(account=account)
+    #sendmail(u.mail)
     data4= main('./myapp/travel/去哪儿_数分.csv')
     return render(request, "render.html")    #管理者
 
