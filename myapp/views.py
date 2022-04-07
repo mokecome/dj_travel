@@ -132,7 +132,7 @@ def processtravel(request):
     data8.to_html('./templates/df.html')
     data9=data8[['地点', '天数', '人均费用', '人物', '玩法', '旅行月份', '浏览次数']]
     data9.to_csv('./myapp/travel/data9.csv',index=False)
-    return HttpResponseRedirect(reverse_lazy(look)) #不能直接渲染
+    return render(request, "df.html")
 
 def look(request):  # 查看的
 

@@ -77,7 +77,7 @@
         <img src="{% static 'images/rrr.png' %}" alt="" class="u-image u-image-contain u-image-default u-image-1" data-image-width="1776" data-image-height="621">
         <h1 class="u-text u-text-default u-text-2"> Wonderful tours</h1>
         <h3 class="u-text u-text-body-alt-color u-text-3"> Duis aute irure dolor in reprehenderit in voluptate velit esse.</h3>
-        <a  class="u-active-white u-align-center u-border-2 u-border-active-white u-border-hover-white u-border-white u-btn u-btn-round u-button-style u-hover-white u-none u-radius-32 u-btn-1">read more</a>
+        <a href="./myapp/viewcharts" class="u-active-white u-align-center u-border-2 u-border-active-white u-border-hover-white u-border-white u-btn u-btn-round u-button-style u-hover-white u-none u-radius-32 u-btn-1">旅遊分析</a>
       </div>
     </section>
     <section class="u-align-center u-clearfix u-palette-5-dark-3 u-section-2" id="carousel_5369">
@@ -120,7 +120,7 @@
       <div class="u-clearfix u-sheet u-valign-middle-xs u-sheet-1">
         <h2 class="u-text u-text-1">Get in touch</h2>
         <div class="u-form u-form-1">
-          <form action="/myapp/processtravel/" method="POST" class="u-clearfix u-form-spacing-40 u-form-vertical u-inner-form" >
+          <form action="/myapp/processtravel/" method="POST" class="u-clearfix u-form-spacing-40 u-form-verticalC u-inner-form" >
               {% csrf_token %}
               <div class="u-form-group u-form-name u-form-partition-factor-2 u-form-group-1">
                   <label for="name-e4cc" class="u-form-control-hidden u-label u-text-body-alt-color u-label-1" wfd-invisible="true">name</label>
@@ -150,15 +150,15 @@
                   <label for="daydown-e4cc" class="u-form-control-hidden u-label u-text-body-alt-color u-label-2" wfd-invisible="true">daydown</label>
                   <input type="text" placeholder="遊玩日期下限" oninput = "value=value.replace(/[^\d]/g,'')" id="daydown-e4cc" name="daydown" class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-white u-input u-input-rectangle u-palette-5-dark-2 u-text-body-alt-color u-input-2" required="">
               </div>
-              <div class="u-align-center u-form-group u-form-submit u-form-group-4">
-                  <a  class="u-active-palette-5-dark-2 u-border-none u-btn u-btn-round u-btn-submit u-button-style u-hover-palette-5-dark-2 u-palette-3-light-1 u-radius-32 u-btn-1">推薦旅遊</a>
+              <div class="u-align-center u-form-group u-form-submit u-form-group-4" >
+                  <a class="u-active-palette-5-dark-2 u-border-none u-btn u-btn-round u-btn-submit u-button-style u-hover-palette-5-dark-2 u-palette-3-light-1 u-radius-32 u-btn-1">推薦旅遊</a>
                   <input type="submit" value="推薦旅遊" class="u-form-control-hidden u-grey-5">
               </div>
           </form>
-            <div>
-                <a href="/myapp/look/" class="u-active-palette-5-dark-2 u-border-none u-btn u-btn-round u-btn-submit u-button-style u-hover-palette-5-dark-2 u-palette-3-light-1 u-radius-32 u-btn-1">查看</a>
-                <input type="submit" value="查看" class="u-form-control-hidden u-grey-5">
-            </div>
+{#            <div id="trbtn02">#}
+{#                <a href="/myapp/look/" class="u-active-palette-5-dark-2 u-border-none u-btn u-btn-round u-btn-submit u-button-style u-hover-palette-5-dark-2 u-palette-3-light-1 u-radius-32 u-btn-1">查看</a>#}
+{#                <input type="submit" value="查看" class="u-form-control-hidden u-grey-5">#}
+{#            </div>#}
         </div>
       </div>
     </section>
