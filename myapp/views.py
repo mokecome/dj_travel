@@ -40,6 +40,7 @@ def processLogin(request):
             return HttpResponseRedirect(reverse_lazy(login))
         else:
             request.session['user'] = u.name
+            request.session['mail']=u.mail
             if flag==0:
                 # 排程
                 work = Schedule()
@@ -82,8 +83,8 @@ def logout(request):
 
 def viewcharts(request):        #管理者
     #寄送email
-    #u = User.objects.get(account=account)
-    #sendmail(u.mail)
+
+    #sendmail(request.session['mail'])
     data4= main('./myapp/travel/去哪儿_数分.csv')
     return render(request, "render.html")    #管理者
 
